@@ -1,0 +1,4 @@
+APP_ID = "4a9a47bc-53ff-4699-9bfb-2ddd553198b1"
+APP_SECRET = "2c0e3e44-c35e-4eeb-892f-f6e07c711ac5"
+BOT_TOKEN = ""
+BOT_USER_ID = ""
