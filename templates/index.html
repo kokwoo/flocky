@@ -1,174 +1,138 @@
 <!doctype html>
 <html><head>
-    <meta charset="utf-8">
-    <title>HoneyDew</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Carlos Alvarez - Alvarez.is">
+  <meta charset="utf-8">
+  <title>HoneyDew</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Carlos Alvarez - Alvarez.is">
 
-    <!-- Le styles -->
-    <link href="{{ url_for('static', filename='assets/css/bootstrap.css')}}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='assets/css/main.css')}}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='assets/css/font-style.css')}}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='assets/css/flexslider.css')}}" rel="stylesheet">
+  <!-- Le styles -->
+  <link href="{{ url_for('static', filename='assets/css/bootstrap.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/main.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/font-style.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/flexslider.css')}}" rel="stylesheet">
 
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.js')}}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/flock.js')}}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.js')}}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='assets/flock.js')}}"></script>
 
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
+  <style type="text/css">
+  body {
+    padding-top: 60px;
+  }
+  </style>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/ico/favicon.ico')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-144-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-57-precomposed.png')}}">
+  <!-- Le fav and touch icons -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='assets/ico/favicon.ico')}}">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-144-precomposed.png')}}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-114-precomposed.png')}}">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-72-precomposed.png')}}">
+  <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-57-precomposed.png')}}">
 
-  	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
-	<link href="https://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
-  	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
-<script type="text/javascript">
-$(document).ready(function () {
-
-    $("#btn-blog-next").click(function () {
-      $('#blogCarousel').carousel('next')
-    });
-     $("#btn-blog-prev").click(function () {
-      $('#blogCarousel').carousel('prev')
-    });
-
-     $("#btn-client-next").click(function () {
-      $('#clientCarousel').carousel('next')
-    });
-     $("#btn-client-prev").click(function () {
-      $('#clientCarousel').carousel('prev')
-    });
-
-    $("#login-btn").click(function () {
-      console.log('hi');
-      flock.openBrowser("https://www.google.com");
-      window.open("https://www.google.com");
-    })
-});
-
- $(window).load(function(){
-
-    $('.flexslider').flexslider({
-        animation: "slide",
-        slideshow: true,
-        start: function(slider){
-          $('body').removeClass('loading');
-        }
-    });
-});
-
-</script>
+  <!-- Google Fonts call. Font Used Open Sans & Raleway -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
 
 
-  </head>
-  <body>
 
-  	<!-- NAVIGATION MENU -->
+</head>
+<body>
 
-    <div class="navbar-nav navbar-inverse navbar-fixed-top">
-        <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='assets/img/logo30.png')}}" alt=""> HoneyDew</a>
-        </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html"><i class="icon-home icon-white"></i>Dashboard</a></li>
-              <li><a href="/manage"><i class="icon-folder-open icon-white"></i>Environments</a></li>
-              <li><a href="" id="login-btn"><i class="icon-folder-open icon-white"></i>Login</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-    </div>
+  <!-- NAVIGATION MENU -->
 
+  <div class="navbar-nav navbar-inverse navbar-fixed-top">
     <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='assets/img/logo30.png')}}" alt=""> Honeydew</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/dashboard"><i class="icon-home icon-white"></i>Dashboard</a></li>
+          <li><a href="/manage"><i class="icon-folder-open icon-white"></i>Environments</a></li>
+          <li><a href="" id="login-btn"><i class="icon-folder-open icon-white"></i>Login</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
 
-	 <div class="row">
+  <div class="container">
 
-        <div class="row">
-          <div class="col-sm-3 col-lg-3">
-         <!-- MAIL BLOCK -->
+    <div class="row">
+
+      <div class="row">
+        <div class="col-sm-3 col-lg-3">
+          <!-- MAIL BLOCK -->
           <div class="dash-unit">
-          <dtitle>Volume Mount Info</dtitle>
-          <hr>
-          <div class="framemail">
-         <div class="window">
-             <ul class="mail">
-                 <li>
-                     <i class="unread"></i>
-                     <p class="sender"><a href="https://35.167.128.69/occmui/#/main/working-environments/VsaWorkingEnvironment-3CGFjj4V/monitoring?gadget=volumeInformation&type=VSA&provider=AWS&selectedVolumeName=APP_CLONE&selectedVolumeSVM=svm_TeamHoneydew">Prod Volume 1</a></p>
-                     <p class="message">Prod1, Prod2, QA1</p>
-                 </li>
-                 <li>
-                     <i class="read"></i>
-                     <p class="sender"><a href="https://35.167.128.69/occmui/#/main/working-environments/VsaWorkingEnvironment-3CGFjj4V/monitoring?gadget=volumeInformation&type=VSA&provider=AWS&selectedVolumeName=APP_CLONE&selectedVolumeSVM=svm_TeamHoneydew">Prod Volume 2</a></p>
-                 </li>
-                 <li>
-                     <i class="unread"></i>
-                     <p class="sender"><a href="https://35.167.128.69/occmui/#/main/working-environments/VsaWorkingEnvironment-3CGFjj4V/monitoring?gadget=volumeInformation&type=VSA&provider=AWS&selectedVolumeName=APP_CLONE&selectedVolumeSVM=svm_TeamHoneydew">Scale Test Volume</a></p>
-                     <p class="message">Scale1, Scale2, Scale3</p>
-                 </li>
-                 <li>
-                     <i class="read"></i>
-                     <p class="sender"><a href="https://35.167.128.69/occmui/#/main/working-environments/VsaWorkingEnvironment-3CGFjj4V/monitoring?gadget=volumeInformation&type=VSA&provider=AWS&selectedVolumeName=APP_CLONE&selectedVolumeSVM=svm_TeamHoneydew">Experimental</a></p>
-                     <p class="message">Exp1, Exp2</p>
-                 </li>
-             </ul>
-         </div>
-     </div>
-    </div><!-- /dash-unit -->
-      </div><!-- /span3 -->
+            <dtitle>Volume Mount Info</dtitle>
+            <hr>
+            <div class="framemail">
+              <div class="window">
+                <ul class="mail">
+                  <li>
+                    <i class="unread"></i>
+                    <p class="sender"><a href="https://35.167.128.69/occmui/#/main/working-environments/VsaWorkingEnvironment-3CGFjj4V/monitoring?gadget=volumeInformation&type=VSA&provider=AWS&selectedVolumeName=APP_CLONE&selectedVolumeSVM=svm_TeamHoneydew">Prod Volume 1</a></p>
+                    <p class="message">Prod1, Prod2, QA1</p>
+                  </li>
+                  <li>
+                    <i class="read"></i>
+                    <p class="sender"><a href="https://35.167.128.69/occmui/#/main/working-environments/VsaWorkingEnvironment-3CGFjj4V/monitoring?gadget=volumeInformation&type=VSA&provider=AWS&selectedVolumeName=APP_CLONE&selectedVolumeSVM=svm_TeamHoneydew">Prod Volume 2</a></p>
+                  </li>
+                  <li>
+                    <i class="unread"></i>
+                    <p class="sender"><a href="https://35.167.128.69/occmui/#/main/working-environments/VsaWorkingEnvironment-3CGFjj4V/monitoring?gadget=volumeInformation&type=VSA&provider=AWS&selectedVolumeName=APP_CLONE&selectedVolumeSVM=svm_TeamHoneydew">Scale Test Volume</a></p>
+                    <p class="message">Scale1, Scale2, Scale3</p>
+                  </li>
+                  <li>
+                    <i class="read"></i>
+                    <p class="sender"><a href="https://35.167.128.69/occmui/#/main/working-environments/VsaWorkingEnvironment-3CGFjj4V/monitoring?gadget=volumeInformation&type=VSA&provider=AWS&selectedVolumeName=APP_CLONE&selectedVolumeSVM=svm_TeamHoneydew">Experimental</a></p>
+                    <p class="message">Exp1, Exp2</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- /dash-unit -->
+        </div><!-- /span3 -->
 
-      <!-- DONUT CHART BLOCK -->
+        <!-- DONUT CHART BLOCK -->
         <div class="col-sm-3 col-lg-3">
-        <div class="dash-unit">
-      <dtitle>Product Volume 1</dtitle>
-      <hr>
-          <div id="load"></div>
-          <h2>45%</h2>
-   </div>
+          <div class="dash-unit">
+            <dtitle>Product Volume 1</dtitle>
+            <hr>
+            <div id="load"></div>
+            <h2>45%</h2>
+          </div>
         </div>
 
-      <!-- DONUT CHART BLOCK -->
+        <!-- DONUT CHART BLOCK -->
         <div class="col-sm-3 col-lg-3">
-        <div class="dash-unit">
-      <dtitle>Product Volume 2</dtitle>
-      <hr>
-          <div id="space"></div>
-          <h2>65%</h2>
-   </div>
+          <div class="dash-unit">
+            <dtitle>Product Volume 2</dtitle>
+            <hr>
+            <div id="space"></div>
+            <h2>65%</h2>
+          </div>
         </div>
 
 
 
-            <!-- DONUT CHART BLOCK -->
+        <!-- DONUT CHART BLOCK -->
         <div class="col-sm-3 col-lg-3">
-        <div class="dash-unit">
-      <dtitle>Scale Test Volume</dtitle>
-      <hr>
-          <div id="space"></div>
-          <h2>65%</h2>
-   </div>
+          <div class="dash-unit">
+            <dtitle>Scale Test Volume</dtitle>
+            <hr>
+            <div id="space"></div>
+            <h2>65%</h2>
+          </div>
         </div>
 
 
@@ -178,7 +142,7 @@ $(document).ready(function () {
 
 
 
-      </div><!-- /row -->
+    </div><!-- /row -->
 
 
 
@@ -188,20 +152,31 @@ $(document).ready(function () {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="{{ url_for('static', filename='assets/js/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/dash-charts.js')}}"></script>
 
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/dash-charts.js')}}"></script>
+    <!-- NOTY JAVASCRIPT -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/jquery.noty.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/top.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topLeft.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topRight.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topCenter.js')}}"></script>
 
-	<!-- NOTY JAVASCRIPT -->
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/jquery.noty.js')}}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/top.js')}}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topLeft.js')}}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topRight.js')}}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topCenter.js')}}"></script>
-
-	<!-- You can add more layouts if you want -->
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/themes/default.js')}}"></script>
+    <!-- You can add more layouts if you want -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/themes/default.js')}}"></script>
     <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
-	<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="{{ url_for('static', filename='assets/js/jquery.flexslider.js')}}" type="text/javascript"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.flexslider.js')}}" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var load = uptime('load', 45);
+      var space = storage('space', 70);
 
-</body></html>
+      $("#login-btn").click(function () {
+        flock.openBrowser("http://35.167.128.69/occmui");
+        window.open("http://35.167.128.69/occmui");
+      });
+    });
+    </script>
+
+  </body>
+</html>

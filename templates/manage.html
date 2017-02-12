@@ -1,345 +1,288 @@
 <!doctype html>
 <html><head>
-    <meta charset="utf-8">
-    <title>Honeydew - NetApp on Flock</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Carlos Alvarez - Alvarez.is">
+  <meta charset="utf-8">
+  <title>Honeydew - NetApp on Flock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Carlos Alvarez - Alvarez.is">
 
-    <!-- Le styles -->
-    <link href="{{ url_for('static', filename='assets/css/bootstrap.css')}}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='assets/css/main.css')}}" rel="stylesheet">
-    <style>
-    .chart {
-      width: 11.313em;
-      height: 11.313em;
-      -moz-border-radius: 5px;
-      border-radius: 5px;
-      margin-bottom: 1.063em;
-      background-position: center center;
-      margin:auto;
-    }
-
-    .env-button {
-      width:10em;
-      margin:auto;
-      display:block;
-      margin-top:2em;
-      margin-bottom:2em;
-      font-size:1.3em;
-    }
-    </style>
-    <link href="{{ url_for('static', filename='assets/css/font-style.css')}}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='assets/css/flexslider.css')}}" rel="stylesheet">
-
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.js')}}"></script>
-
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/ico/favicon.ico')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-144-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-57-precomposed.png')}}">
-
-  	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
-	<link href="https://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
-  	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
-<script type="text/javascript">
- $(window).load(function(){
-    $('.flexslider').flexslider({
-        animation: "slide",
-        slideshow: true,
-        start: function(slider){
-          $('body').removeClass('loading');
-        }
-    });
-  });
- /*** First Chart in Dashboard page ***/
-$(document).ready(function() {
-  var chart = function(chartName, data) {
-    return new Highcharts.Chart({
-      chart: {
-        renderTo: chartName,
-        margin: [0, 0, 0, 0],
-        backgroundColor: null,
-        plotBackgroundColor: 'none',
-      },
-
-      title: {
-        text: null
-      },
-
-      tooltip: {
-        formatter: function() {
-          return this.point.name +': '+ this.y +' %';
-        }
-      },
-
-      series: [{
-        borderWidth: 2,
-        borderColor: '#F1F3EB',
-        shadow: false,
-        type: 'pie',
-        name: 'Income',
-        innerSize: '65%',
-        data: data,
-        dataLabels: {
-          enabled: false,
-          color: '#000000',
-          connectorColor: '#000000'
-        }
-      }]
-    });
+  <!-- Le styles -->
+  <link href="{{ url_for('static', filename='assets/css/bootstrap.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/main.css')}}" rel="stylesheet">
+  <style>
+  .chart {
+    width: 11.313em;
+    height: 11.313em;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 1.063em;
+    background-position: center center;
+    margin:auto;
   }
 
-  var uptime = function(chartName, up) {
-    var down = 100 - up;
-    return chart(chartName, [
-      { name: 'Uptime', y: up, color: '#b2c831' },
-      { name: 'Downtime', y: down, color: '#3d3d3d' }
-    ]);
+  .env-button {
+    width:10em;
+    margin:auto;
+    display:block;
+    margin-top:2em;
+    margin-bottom:2em;
+    font-size:1.3em;
   }
+  </style>
+  <link href="{{ url_for('static', filename='assets/css/font-style.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/flexslider.css')}}" rel="stylesheet">
 
-  var storage = function(chartName, used) {
-    var unused = 100 - used;
-    return chart(chartName, [
-      { name: 'Used', y: used, color: '#fa1d2d' },
-      { name: 'Free', y: unused, color: '#3d3d3d' }
-    ]);
+  <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.js')}}"></script>
+
+  <style type="text/css">
+  body {
+    padding-top: 60px;
   }
+  </style>
 
-  var prodUptime = uptime('prod-uptime', 100);
-  var devUptime = uptime('dev-uptime', 77);
-  var qaUptime = uptime('qa-uptime', 86);
-  var scaleUptime = uptime('scale-uptime', 97);
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
-  var prodStorage = storage('prod-storage', 78);
-  var devStorage = storage('dev-storage', 68);
-  var qaStorage = storage('qa-storage', 34);
-  var scaleStorage = storage('scale-storage', 99);
-});
+  <!-- Le fav and touch icons -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='assets/ico/favicon.ico')}}">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-144-precomposed.png')}}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-114-precomposed.png')}}">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-72-precomposed.png')}}">
+  <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='assets/ico/apple-touch-icon-57-precomposed.png')}}">
 
-</script>
+  <!-- Google Fonts call. Font Used Open Sans & Raleway -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 </head>
-  <body>
+<body>
 
-  	<!-- NAVIGATION MENU -->
+  <!-- NAVIGATION MENU -->
 
-    <div class="navbar-nav navbar-inverse navbar-fixed-top">
-        <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='assets/img/logo30.png')}}" alt=""> Honeydew</a>
-        </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="/dashboard"><i class="icon-home icon-white"></i> Dashboard</a></li>
-              <li class="active"><a href="manage"><i class="icon-folder-open icon-white"></i> Environments</a></li>
-              <li><div id="login-btn"><i class="icon-folder-open icon-white"></i>Login</div></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-    </div>
-
+  <div class="navbar-nav navbar-inverse navbar-fixed-top">
     <div class="container">
-
-	  <!-- FIRST ROW OF BLOCKS -->
-      <div class="row">
-      <!-- USER PROFILE BLOCK -->
-      	<div class="dash-unit">
-      		<dtitle>Environment - Production</dtitle>
-      		<hr>
-          <div id="prod">
-            <div class="col-sm-3 col-lg-3">
-    	        <div id="prod-uptime" class="chart"></div>
-              <h2>Uptime</h2>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div id="prod-storage" class="chart"></div>
-              <h2>Storage</h2>
-            </div>
-            <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
-                <div class="cont" style="margin-top: -12px">
-                  <p  style="padding-top:5"><bold>5.3.2.11</bold></p>
-                  <p>Deployment Version</p>
-                </div>
-
-                <div class="cont">
-                  <p><bold>1.160.10.240</bold></p>
-                  <p>IP Address</p>
-                </div>
-
-
-                <div class="cont">
-                  <p><bold>Windows 10</bold></p>
-                  <p>OS Version</p>
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="row env-button-div">
-                <button class="btn btn-primary env-button">CLONE</button>
-              </div>
-              <div class="row env-button-div">
-                <button class="btn btn-danger env-button">DESTROY</button>
-              </div>
-            </div>
-		      </div>
-        </div>
-
-        <div class="dash-unit">
-      		<dtitle>Environment - QA</dtitle>
-      		<hr>
-          <div id="qa">
-            <div class="col-sm-3 col-lg-3">
-    	        <div id="qa-uptime" class="chart"></div>
-              <h2>Uptime</h2>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div id="qa-storage" class="chart"></div>
-              <h2>Storage</h2>
-            </div>
-            <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
-                <div class="cont" style="margin-top: -12px">
-                  <p  style="padding-top:5"><bold>5.3.2.11</bold></p>
-                  <p>Deployment Version</p>
-                </div>
-
-                <div class="cont">
-                  <p><bold>1.160.10.240</bold></p>
-                  <p>IP Address</p>
-                </div>
-
-
-                <div class="cont">
-                  <p><bold>Windows 10</bold></p>
-                  <p>OS Version</p>
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="row env-button-div">
-                <button class="btn btn-primary env-button">CLONE</button>
-              </div>
-              <div class="row env-button-div">
-                <button class="btn btn-danger env-button">DESTROY</button>
-              </div>
-            </div>
-		      </div>
-				</div>
-
-        <div class="dash-unit">
-      		<dtitle>Environment - Develop</dtitle>
-      		<hr>
-          <div id="dev">
-            <div class="col-sm-3 col-lg-3">
-    	        <div id="dev-uptime" class="chart"></div>
-              <h2>Uptime</h2>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div id="dev-storage" class="chart"></div>
-              <h2>Storage</h2>
-            </div>
-            <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
-                <div class="cont" style="margin-top: -12px">
-                  <p  style="padding-top:5"><bold>5.3.2.11</bold></p>
-                  <p>Deployment Version</p>
-                </div>
-
-                <div class="cont">
-                  <p><bold>1.160.10.240</bold></p>
-                  <p>IP Address</p>
-                </div>
-
-
-                <div class="cont">
-                  <p><bold>Windows 10</bold></p>
-                  <p>OS Version</p>
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="row env-button-div">
-                <button class="btn btn-primary env-button">CLONE</button>
-              </div>
-              <div class="row env-button-div">
-                <button class="btn btn-danger env-button">DESTROY</button>
-              </div>
-            </div>
-		      </div>
-				</div>
-
-        <div class="dash-unit">
-      		<dtitle>Environment - Scale</dtitle>
-      		<hr>
-          <div id="scale">
-            <div class="col-sm-3 col-lg-3">
-    	        <div id="scale-uptime" class="chart"></div>
-              <h2>Uptime</h2>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div id="scale-storage" class="chart"></div>
-              <h2>Storage</h2>
-            </div>
-            <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
-                <div class="cont" style="margin-top: -12px">
-                  <p  style="padding-top:5"><bold>5.3.2.11</bold></p>
-                  <p>Deployment Version</p>
-                </div>
-
-                <div class="cont">
-                  <p><bold>1.160.10.240</bold></p>
-                  <p>IP Address</p>
-                </div>
-
-
-                <div class="cont">
-                  <p><bold>Windows 10</bold></p>
-                  <p>OS Version</p>
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3">
-              <div class="row env-button-div">
-                <button class="btn btn-primary env-button">CLONE</button>
-              </div>
-              <div class="row env-button-div">
-                <button class="btn btn-danger env-button">DESTROY</button>
-              </div>
-            </div>
-		      </div>
-				</div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='assets/img/logo30.png')}}" alt=""> Honeydew</a>
       </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/dashboard"><i class="icon-home icon-white"></i> Dashboard</a></li>
+          <li class="active"><a href="manage"><i class="icon-folder-open icon-white"></i> Environments</a></li>
+          <li><a href="" id="login-btn"><i class="icon-folder-open icon-white"></i>Login</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- FIRST ROW OF BLOCKS -->
+    <div class="row">
+      <!-- USER PROFILE BLOCK -->
+      <div class="dash-unit">
+        <dtitle>Environment - Production</dtitle>
+        <hr>
+        <div id="prod">
+          <div class="col-sm-3 col-lg-3">
+            <div id="prod-uptime" class="chart"></div>
+            <h2>Uptime</h2>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div id="prod-storage" class="chart"></div>
+            <h2>Storage</h2>
+          </div>
+          <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
+            <div class="cont" style="margin-top: -12px">
+              <p  style="padding-top:5"><bold>5.3.2.11</bold></p>
+              <p>Deployment Version</p>
+            </div>
+
+            <div class="cont">
+              <p><bold>1.160.10.240</bold></p>
+              <p>IP Address</p>
+            </div>
+
+
+            <div class="cont">
+              <p><bold>Windows 10</bold></p>
+              <p>OS Version</p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="row env-button-div">
+              <button class="btn btn-primary env-button">CLONE</button>
+            </div>
+            <div class="row env-button-div">
+              <button class="btn btn-danger env-button">DESTROY</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-unit">
+        <dtitle>Environment - QA</dtitle>
+        <hr>
+        <div id="qa">
+          <div class="col-sm-3 col-lg-3">
+            <div id="qa-uptime" class="chart"></div>
+            <h2>Uptime</h2>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div id="qa-storage" class="chart"></div>
+            <h2>Storage</h2>
+          </div>
+          <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
+            <div class="cont" style="margin-top: -12px">
+              <p  style="padding-top:5"><bold>5.3.2.11</bold></p>
+              <p>Deployment Version</p>
+            </div>
+
+            <div class="cont">
+              <p><bold>1.160.10.240</bold></p>
+              <p>IP Address</p>
+            </div>
+
+
+            <div class="cont">
+              <p><bold>Windows 10</bold></p>
+              <p>OS Version</p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="row env-button-div">
+              <button class="btn btn-primary env-button">CLONE</button>
+            </div>
+            <div class="row env-button-div">
+              <button class="btn btn-danger env-button">DESTROY</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-unit">
+        <dtitle>Environment - Develop</dtitle>
+        <hr>
+        <div id="dev">
+          <div class="col-sm-3 col-lg-3">
+            <div id="dev-uptime" class="chart"></div>
+            <h2>Uptime</h2>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div id="dev-storage" class="chart"></div>
+            <h2>Storage</h2>
+          </div>
+          <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
+            <div class="cont" style="margin-top: -12px">
+              <p  style="padding-top:5"><bold>5.3.2.11</bold></p>
+              <p>Deployment Version</p>
+            </div>
+
+            <div class="cont">
+              <p><bold>1.160.10.240</bold></p>
+              <p>IP Address</p>
+            </div>
+
+
+            <div class="cont">
+              <p><bold>Windows 10</bold></p>
+              <p>OS Version</p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="row env-button-div">
+              <button class="btn btn-primary env-button">CLONE</button>
+            </div>
+            <div class="row env-button-div">
+              <button class="btn btn-danger env-button">DESTROY</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-unit">
+        <dtitle>Environment - Scale</dtitle>
+        <hr>
+        <div id="scale">
+          <div class="col-sm-3 col-lg-3">
+            <div id="scale-uptime" class="chart"></div>
+            <h2>Uptime</h2>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div id="scale-storage" class="chart"></div>
+            <h2>Storage</h2>
+          </div>
+          <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
+            <div class="cont" style="margin-top: -12px">
+              <p  style="padding-top:5"><bold>5.3.2.11</bold></p>
+              <p>Deployment Version</p>
+            </div>
+
+            <div class="cont">
+              <p><bold>1.160.10.240</bold></p>
+              <p>IP Address</p>
+            </div>
+
+
+            <div class="cont">
+              <p><bold>Windows 10</bold></p>
+              <p>OS Version</p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="row env-button-div">
+              <button class="btn btn-primary env-button">CLONE</button>
+            </div>
+            <div class="row env-button-div">
+              <button class="btn btn-danger env-button">DESTROY</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="{{ url_for('static', filename='assets/js/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/dash-charts.js')}}"></script>
 
-	<!-- NOTY JAVASCRIPT -->
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/jquery.noty.js')}}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/top.js')}}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topLeft.js')}}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topRight.js')}}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topCenter.js')}}"></script>
+    <!-- NOTY JAVASCRIPT -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/jquery.noty.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/top.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topLeft.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topRight.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topCenter.js')}}"></script>
 
-	<!-- You can add more layouts if you want -->
-	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/themes/default.js')}}"></script>
+    <!-- You can add more layouts if you want -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/themes/default.js')}}"></script>
     <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
-	<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="{{ url_for('static', filename='assets/js/jquery.flexslider.js')}}" type="text/javascript"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.flexslider.js')}}" type="text/javascript"></script>
 
-</body></html>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var prodUptime = uptime('prod-uptime', 100);
+        var devUptime = uptime('dev-uptime', 77);
+        var qaUptime = uptime('qa-uptime', 86);
+        var scaleUptime = uptime('scale-uptime', 97);
+
+        var prodStorage = storage('prod-storage', 78);
+        var devStorage = storage('dev-storage', 68);
+        var qaStorage = storage('qa-storage', 34);
+        var scaleStorage = storage('scale-storage', 99);
+
+        $("#login-btn").click(function () {
+          flock.openBrowser("http://35.167.128.69/occmui");
+          window.open("http://35.167.128.69/occmui");
+        });
+      });
+    </script>
+  </body>
+  </html>
