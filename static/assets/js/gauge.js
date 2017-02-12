@@ -56,7 +56,7 @@ window.onload = function(){
 		if(typeof animation_loop != undefined) clearInterval(animation_loop);
 		
 		//random degree from 0 to 360
-		new_degrees = Math.round(Math.random()*360);
+		new_degrees = 0.55*360;
 		difference = new_degrees - degrees;
 		//This will animate the gauge to new positions
 		//The animation will take 1 second
@@ -81,7 +81,7 @@ window.onload = function(){
 	
 	//Lets add some animation for fun
 	draw();
-	redraw_loop = setInterval(draw, 2000); //Draw a new chart every 2 seconds
+	// redraw_loop = setInterval(draw, 2000); //Draw a new chart every 2 seconds
 	
 	
 	

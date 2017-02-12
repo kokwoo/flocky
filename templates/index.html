@@ -14,6 +14,8 @@
 
   <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.js')}}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='assets/flock.js')}}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='assets/gauge.js')}}"></script>
+
 
   <style type="text/css">
   body {
@@ -53,7 +55,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='assets/img/logo30.png')}}" alt=""> Honeydew</a>
+        <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='assets/img/jas18.png')}}" alt=""> Honeydew</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
@@ -104,36 +106,160 @@
         </div><!-- /span3 -->
 
         <!-- DONUT CHART BLOCK -->
-        <div class="col-sm-3 col-lg-3">
+<!--         <div class="col-sm-3 col-lg-3">
           <div class="dash-unit">
             <dtitle>Product Volume 1</dtitle>
             <hr>
-            <div id="load"></div>
-            <h2>45%</h2>
+            Parent Volume
+            Allocated Capacity
+            Used Capcity
+            Maximum Growth Size
           </div>
+        </div> -->
+
+<div class="col-sm-3 col-lg-3">
+    <div class="dash-unit">
+         <dtitle>Product Volume 1 Info</dtitle>
+         <hr>
+         <div class="accordion" id="accordion2">
+            <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                          Allocated Capcity
+                          </a>
+                      </div>
+                      <div id="collapseOne" class="accordion-body collapse in">
+                          <div class="accordion-inner">10GB        </div>
+                      </div>
+                  </div>
+
+                  <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                          Used Capcity
+                          </a>
+                      </div>
+                      <div id="collapseTwo" class="accordion-body">
+                          <div class="accordion-inner"> 5.5GB
         </div>
+                      </div>
+                  </div>
+
+                   <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                          Parent Volume
+                          </a>
+                      </div>
+                      <div id="collapseThree" class="accordion-body">
+                          <div class="accordion-inner">
+                          Team_HoneyDew
+                          </div>
+                      </div>
+                  </div>
+                     <canvas id="canvas" width="300" height="300">
+      </canvas>
+              </div><!--/accordion -->
+
+
+    </div>
+   </div>
+
 
         <!-- DONUT CHART BLOCK -->
-        <div class="col-sm-3 col-lg-3">
-          <div class="dash-unit">
-            <dtitle>Product Volume 2</dtitle>
-            <hr>
-            <div id="space"></div>
-            <h2>65%</h2>
-          </div>
+<div class="col-sm-3 col-lg-3">
+    <div class="dash-unit">
+         <dtitle>Product Volume 2 Info</dtitle>
+         <hr>
+         <div class="accordion" id="accordion2">
+            <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                          Allocated Capcity
+                          </a>
+                      </div>
+                      <div id="collapseOne" class="accordion-body collapse in">
+                          <div class="accordion-inner">2GB        </div>
+                      </div>
+                  </div>
+
+                  <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                          Used Capcity
+                          </a>
+                      </div>
+                      <div id="collapseTwo" class="accordion-body">
+                          <div class="accordion-inner"> 500KB
         </div>
+                      </div>
+                  </div>
+
+                   <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                          Parent Volume
+                          </a>
+                      </div>
+                      <div id="collapseThree" class="accordion-body">
+                          <div class="accordion-inner">
+                          Team_Fig
+                          </div>
+                      </div>
+                  </div>
+              </div><!--/accordion -->
+    </div>
+   </div>
 
 
 
         <!-- DONUT CHART BLOCK -->
-        <div class="col-sm-3 col-lg-3">
-          <div class="dash-unit">
-            <dtitle>Scale Test Volume</dtitle>
-            <hr>
-            <div id="space"></div>
-            <h2>65%</h2>
-          </div>
+<div class="col-sm-3 col-lg-3">
+    <div class="dash-unit">
+         <dtitle>Scale Test Volume Info</dtitle>
+         <hr>
+         <div class="accordion" id="accordion2">
+            <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                          Allocated Capcity
+                          </a>
+                      </div>
+                      <div id="collapseOne" class="accordion-body collapse in">
+                          <div class="accordion-inner">1GB        </div>
+                      </div>
+                  </div>
+
+                  <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                          Used Capcity
+                          </a>
+                      </div>
+                      <div id="collapseTwo" class="accordion-body">
+                          <div class="accordion-inner"> 412GB
         </div>
+                      </div>
+                  </div>
+
+                   <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                          Parent Volume
+                          </a>
+                      </div>
+                      <div id="collapseThree" class="accordion-body">
+                          <div class="accordion-inner">
+                          Team_Peach
+                          </div>
+                      </div>
+                  </div>
+
+              <canvas id="canvas" >
+   </canvas>
+              </div><!--/accordion -->
+    </div>
+   </div>
 
 
       </div><!-- /row -->
@@ -152,20 +278,25 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="{{ url_for('static', filename='assets/js/bootstrap.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/dash-charts.js')}}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='assets/js/lineandbars.js')}}"></script>
 
-    <!-- NOTY JAVASCRIPT -->
-    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/jquery.noty.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/top.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topLeft.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topRight.js')}}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topCenter.js')}}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='assets/js/dash-charts.js')}}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='assets/js/gauge.js')}}"></script>
 
-    <!-- You can add more layouts if you want -->
-    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/themes/default.js')}}"></script>
+ <!-- NOTY JAVASCRIPT -->
+ <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/jquery.noty.js')}}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/top.js')}}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topLeft.js')}}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topRight.js')}}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/layouts/topCenter.js')}}"></script>
+
+ <!-- You can add more layouts if you want -->
+ <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/themes/default.js')}}"></script>
     <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
-    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="{{ url_for('static', filename='assets/js/jquery.flexslider.js')}}" type="text/javascript"></script>
+ <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+ <script src="{{ url_for('static', filename='assets/js/jquery.flexslider.js')}}" type="text/javascript"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/admin.js')}}"></script>
     <script type="text/javascript">
     $(document).ready(function () {
       var load = uptime('load', 45);
