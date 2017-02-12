@@ -83,10 +83,6 @@ def events():
 def main():
     return render_template('login.html')
 
-@app.route("/developers")
-def developers():
-    return render_template('developers.html')
-
 @app.route("/dashboard")
 def dashboard():
     print('it is coming here', request.method)
@@ -99,7 +95,7 @@ def ready():
 
 @app.route("/manage")
 def create():
-    return render_template('manage.html')    
+    return render_template('manage.html')
 
 if __name__=="__main__":
     port = int(os.environ.get("PORT", 5000))

@@ -42,10 +42,10 @@ var uptime = function(chartName, up) {
 	]);
 }
 
-var storage = function(chartName, used) {
-	var unused = 100 - used;
-	return chart(chartName, [
-		{ name: 'Used', y: used, color: '#fa1d2d' },
-		{ name: 'Free', y: unused, color: '#3d3d3d' }
-	]);
-}
+// var storage = function(chartName, used) {
+// 	var unused = 100 - used;
+// 	return chart(chartName, [
+// 		{ name: 'Used', y: used, color: '#fa1d2d' },
+// 		{ name: 'Free', y: unused, color: '#3d3d3d' }
+// 	]);
+// }

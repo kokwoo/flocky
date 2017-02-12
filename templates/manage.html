@@ -95,7 +95,7 @@
             <div id="prod-uptime" class="chart"></div>
             <h2>Uptime</h2>
           </div>
-  
+
           <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
             <div class="cont" style="margin-top: -12px">
               <p  style="padding-top:5"><bold>5.3.11</bold></p>
@@ -117,14 +117,14 @@
             <div class="row env-button-div">
               <button class="btn btn-primary env-button">CLONE</button>
             </div>
-        
+
           </div>
                    <div class="col-sm-3 col-lg-3">
-           
+
            <div class="row env-button-div">
               <button class="btn btn-danger env-button">DESTROY</button>
             </div>
-           
+
           </div>
 
         </div>
@@ -138,7 +138,7 @@
             <div id="qa-uptime" class="chart"></div>
             <h2>Uptime</h2>
           </div>
-     
+
           <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
             <div class="cont" style="margin-top: -12px">
               <p  style="padding-top:5"><bold>2.3.9</bold></p>
@@ -160,15 +160,15 @@
             <div class="row env-button-div">
               <button class="btn btn-primary env-button">CLONE</button>
             </div>
-          
+
           </div>
 
                    <div class="col-sm-3 col-lg-3">
-           
+
            <div class="row env-button-div">
               <button class="btn btn-danger env-button">DESTROY</button>
             </div>
-           
+
           </div>
 
         </div>
@@ -182,7 +182,7 @@
             <div id="dev-uptime" class="chart"></div>
             <h2>Uptime</h2>
           </div>
-     
+
           <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
             <div class="cont" style="margin-top: -12px">
               <p  style="padding-top:5"><bold>3.1.1</bold></p>
@@ -204,15 +204,15 @@
             <div class="row env-button-div">
               <button class="btn btn-primary env-button">CLONE</button>
             </div>
-           
+
           </div>
 
             <div class="col-sm-3 col-lg-3">
-           
+
            <div class="row env-button-div">
               <button class="btn btn-danger env-button">DESTROY</button>
             </div>
-           
+
           </div>
 
         </div>
@@ -226,7 +226,7 @@
             <div id="scale-uptime" class="chart"></div>
             <h2>Uptime</h2>
           </div>
-    
+
           <div class="col-sm-3 col-lg-3"  style="top-padding: 0">
             <div class="cont" style="margin-top: -12px">
               <p  style="padding-top:5"><bold>5.3.2.11</bold></p>
@@ -248,15 +248,15 @@
             <div class="row env-button-div">
               <button class="btn btn-primary env-button">CLONE</button>
             </div>
-          
+
           </div>
 
                    <div class="col-sm-3 col-lg-3">
-           
+
            <div class="row env-button-div">
               <button class="btn btn-danger env-button">DESTROY</button>
             </div>
-           
+
           </div>
 
         </div>
@@ -280,7 +280,7 @@
     <!-- You can add more layouts if you want -->
     <script type="text/javascript" src="{{ url_for('static', filename='assets/js/noty/themes/default.js')}}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='assets/flock.js')}}"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='assets/flock.js.map')}}"></script>
+  <!-- <script type="text/javascript" src="{{ url_for('static', filename='assets/flock.js.map')}}"></script> -->
     <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
     <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
     <script src="{{ url_for('static', filename='assets/js/jquery.flexslider.js')}}" type="text/javascript"></script>
@@ -291,14 +291,15 @@
         var devUptime = uptime('dev-uptime', 77);
         var qaUptime = uptime('qa-uptime', 86);
         var scaleUptime = uptime('scale-uptime', 97);
-
-        var prodStorage = storage('prod-storage', 78);
-        var devStorage = storage('dev-storage', 68);
-        var qaStorage = storage('qa-storage', 34);
-        var scaleStorage = storage('scale-storage', 99);
+        //
+        // var prodStorage = storage('prod-storage', 78);
+        // var devStorage = storage('dev-storage', 68);
+        // var qaStorage = storage('qa-storage', 34);
+        // var scaleStorage = storage('scale-storage', 99);
 
         $("#login-btn").click(function () {
           flock.openBrowser("http://35.167.128.69/occmui");
+          console.log('manage login');
         });
       });
     </script>
