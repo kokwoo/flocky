@@ -15,8 +15,6 @@
 	<script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.js')}}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename='assets/flock.js')}}"></script>
 
-
-
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -56,6 +54,9 @@ $(document).ready(function () {
       $('#clientCarousel').carousel('prev')
     });
 
+    $("#login-btn").click(function () {
+      flock.openBrowser("https://www.google.com");
+    })
 });
 
  $(window).load(function(){
@@ -92,7 +93,7 @@ $(document).ready(function () {
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html"><i class="icon-home icon-white"></i>Dashboard</a></li>
               <li><a href="/manage"><i class="icon-folder-open icon-white"></i>Environments</a></li>
-
+              <li><a href="" id="login-btn"><i class="icon-folder-open icon-white"></i>Login</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
