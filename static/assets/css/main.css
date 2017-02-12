@@ -731,7 +731,8 @@ ul#jstwitter li a{
 /**********Gauge Chart**********/   
 #canvas {
 	display: block;
-	height: 8em !important; width: 8em !important; margin-right: 92px; margin-top: 6px; margin-left: 49px !important;
+	height: 8em !important; width: 8em !important; margin-right: 92px; margin-top: 6px; 
+	margin-left: 49px !important;
 }
 
 /**********Accordion Styling**********/   
